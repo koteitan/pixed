@@ -1,3 +1,9 @@
+/* --------------------------------------------------------
+  pixed
+  pixel editor for Arduboy on Arduboy
+  tested library is
+  git co https://github.com/Arduboy/Arduboy/ 3c409fefb
+--------------------------------------------------------*/
 #include <Arduboy.h>
 #define WX 128
 #define WY 64
@@ -13,7 +19,6 @@ unsigned char *vram; // =arduboy.getBuffer()
 int button[KEYS]={ LEFT_BUTTON, RIGHT_BUTTON, UP_BUTTON, DOWN_BUTTON, A_BUTTON, B_BUTTON};
 boolean keypressed[KEYS];
 Arduboy arduboy;
-AbPrinter text(arduboy);
 int frame_rate = 60;  // frames/sec
 int cx=WX/2;
 int cy=WY/2;
@@ -24,7 +29,7 @@ int clkMax=10;
 int keyRepeatNow = 0;
 int keyRepeatThr = 20;
 void setup(){
-  arduboy.begin();
+  arduboy.beginNoLogo();
   vram = arduboy.getBuffer();
   arduboy.setFrameRate(frame_rate);
 }
